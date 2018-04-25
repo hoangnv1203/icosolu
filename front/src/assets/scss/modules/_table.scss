@@ -1,0 +1,226 @@
+.table{
+    &__box{
+
+    }
+    &__title{
+	    display: block;
+        vertical-align: middle;
+	    padding: 10px 0;
+    }
+    &__sorting{
+	    position: relative;
+	    cursor: pointer;
+	    padding-right: 20px;
+	    @include transition();
+	    //&.active{
+		 //   cursor: default;
+	    //}
+	    &:hover{
+		    opacity: .6;
+		    &:before,
+		    &:after{
+			    visibility: visible;
+		    }
+	    }
+	    &:before,
+	    &:after{
+		    position: absolute;
+		    content: '';
+		    top: 50%;
+		    right: 0;
+		    height: 0;
+		    width: 0;
+		    opacity: 0.6;
+		    visibility: hidden;
+		    border-style: solid;
+		    border-width: 0 4px;
+		    border-color: transparent;
+		    @include translate(0, -50%);
+	    }
+	    &:after{
+		    border-bottom-width: 6px;
+		    border-bottom-color: #89771a;
+		    margin-top: -4px;
+	    }
+	    &:before{
+		    border-top-width: 6px;
+		    border-top-color: #89771a;
+		    margin-top: 4px;
+	     }
+	     
+	    &.asc{
+		    &:after{
+			    visibility: visible;
+			    margin: 0;
+		    }
+		    &:hover{
+			    &:before{
+				    visibility: hidden;
+			    }
+		    }
+	    }
+	    &.desc{
+		    &:before{
+			    visibility: visible;
+			    margin: 0;
+		    }
+		    &:hover{
+			    &:after{
+				    visibility: hidden;
+			    }
+		    }
+	    }
+	    
+        //remove
+        &Box{
+            display: inline-block;
+            width: 8px;
+            height: 12px;
+            vertical-align: middle;
+            position: relative;
+            & a{
+                &:hover,
+                &.active{
+                    opacity: 1;
+                }
+            }
+        }
+        &Up{
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 3px 5px 3px;
+            border-color: transparent transparent #89771a transparent;
+            opacity: 0.6;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+        &Down {
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 5px 3px 0 3px;
+            border-color: #89771a transparent transparent transparent;
+            opacity: 0.6;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+	    //remove
+    }
+    &__empty{
+        text-align: center;
+        padding: 40px 0;
+    }
+}
+table{
+    width: 100%;
+    text-align: left;
+    font-size: 15px;
+    background: $c-accent;
+    font-family: $ff-open-sans;
+    & thead{
+        font-size: 13px;
+        color: rgba($text-color, 0.8);
+        text-transform: uppercase;
+        border-bottom: 1px solid #30333c;
+    }
+    & th{
+        height: 56px;
+        padding: 0 33px;
+        font-size: 13px;
+        font-weight: 400;
+        vertical-align: middle;
+    }
+    & tr{
+        &:nth-child(even){
+            background: #f6d841;
+        }
+    }
+    & td{
+        height: 56px;
+        padding: 0 33px;
+        vertical-align: middle;
+        .td_short {
+            text-overflow: ellipsis;
+            overflow: hidden;
+            max-width:200px;
+            display:block;
+            white-space: nowrap;
+        }
+    }
+    & .time{
+        color: #766a2c;
+        margin-left: 5px;
+    }
+    & tfoot{
+        text-align: center;
+    }
+}
+
+.table-responsive {
+  overflow-x: auto;
+  min-height: 0.01%; // Workaround for IE9 bug (see https://github.com/twbs/bootstrap/issues/14837)
+
+  @media screen and (max-width: 1100px) {
+    width: 100%;
+    margin-bottom: 5;
+    overflow-y: hidden;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+
+    // Tighten up spacing
+    > .table {
+      margin-bottom: 0;
+
+      // Ensure the content doesn't wrap
+      > thead,
+      > tbody,
+      > tfoot {
+        > tr {
+          > th,
+          > td {
+            white-space: nowrap;
+          }
+        }
+      }
+    }
+
+    // Special overrides for the bordered tables
+    > .table-bordered {
+      border: 0;
+
+      // Nuke the appropriate borders so that the parent can handle them
+      > thead,
+      > tbody,
+      > tfoot {
+        > tr {
+          > th:first-child,
+          > td:first-child {
+            border-left: 0;
+          }
+          > th:last-child,
+          > td:last-child {
+            border-right: 0;
+          }
+        }
+      }
+
+      // Only nuke the last row's bottom-border in `tbody` and `tfoot` since
+      // chances are there will be only one `tr` in a `thead` and that would
+      // remove the border altogether.
+      > tbody,
+      > tfoot {
+        > tr:last-child {
+          > th,
+          > td {
+            border-bottom: 0;
+          }
+        }
+      }
+
+    }
+  }
+}

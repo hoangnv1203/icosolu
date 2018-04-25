@@ -1,0 +1,57 @@
+.section__404{
+	background-color: #fee359;
+	height: 100vh;
+	padding: 80px 0 115px;
+	min-height: 600px;
+}
+.nf{
+	&__out{
+		height: 100%;
+		background: url("../images/404_bg.png") 50% 100% no-repeat;
+		@include va_middle_out;
+	}
+	&__in{
+		@include va_middle_in;
+		text-align: center;
+		line-height: 1;
+	}
+	&__num{
+		font-size: 160px;
+		font-weight: 700;
+		margin-bottom: 40px;
+		text-transform: uppercase;
+	}
+	&__text{
+		font-size: 32px;
+		margin-bottom: 30px;
+		text-transform: uppercase;
+	}
+	&__btn{
+		display: block;
+		width: 200px;
+		margin: auto;
+		text-decoration: none;
+		text-align: center;
+	}
+}
+
+@media (max-width: 768px){
+	.nf{
+		&__out{
+			height:100vh;
+			background-position: -250px bottom;
+		    padding: 0;
+		    background-size: 250%;
+		    background-color: #ffe84a;
+		}
+		&__text {
+			margin-bottom: 140px;
+		}
+		&__btn {
+			width: 90%;
+    		max-width: 350px;
+    		margin: 0 auto;
+		}
+		
+	}
+}

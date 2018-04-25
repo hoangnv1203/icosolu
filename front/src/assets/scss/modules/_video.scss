@@ -1,0 +1,70 @@
+.videoPlay{
+    font-size: 36px;
+    font-weight: 500;
+    margin-top: 16vh;
+    &__title{
+        display: block;
+        opacity: 0.9;
+    }
+    &__btn{
+        font-size: 75px;
+        line-height: 0;
+        display: inline-block;
+        &:hover{
+            @include scale(1.1);
+            & + .glow{
+                opacity: 0;
+                @include scale(0.4);
+            }
+        }
+    }
+    &__icon{
+        display: inline-block;
+        position: relative;
+        margin-bottom: 30px;
+        font-size: 0;
+        & .glow{
+            width: 250px;
+            height: 250px;
+            position: absolute;
+            top: -88px;
+            left: -88px;
+            background: rgba(0, 0, 0, 0.06);
+            border-radius: 100%;
+            pointer-events: none;
+            opacity: 1;
+            animation: scalePlayBtn ease-out 1s;
+            @include transition(0.3s);
+            &:before{
+                content: '';
+                width: 180px;
+                height: 180px;
+                position: absolute;
+                top: 35px;
+                left: 35px;
+                background: rgba(0, 0, 0, 0.06);
+                border-radius: 100%;
+            }
+            &:after{
+                content: '';
+                width: 120px;
+                height: 120px;
+                position: absolute;
+                top: 66px;
+                left: 66px;
+                background: rgba(0, 0, 0, 0.06);
+                border-radius: 100%;
+            }
+        }
+        & i{
+            position: relative;
+            z-index: 1;
+        }
+    }
+}
+
+@media (max-width: 768px){
+    .videoPlay {
+        margin-top:30vh;
+    }
+}

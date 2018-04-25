@@ -1,0 +1,141 @@
+.soc{
+    &__list{
+        float: right;
+        font-size: 0;
+        line-height: 70px;
+        margin: 0;
+    }
+    &__title{
+        opacity: 0.5;
+        font-size: 16px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    &__item{
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 22px;
+    }
+    &__link{
+        display: block;
+        font-size: 40px;
+        color: #d2d2d2;
+        &.tw{
+            &:hover{
+                color: #1fa1f3;
+            }
+        }
+        &.google{
+            &:hover{
+                color: #d44133;
+            }
+        }
+        &.fb{
+            &:hover{
+                color: #3c5b9b;
+            }
+        }
+    }
+}
+.market{
+    &__list{
+        font-size: 20px;
+        line-height: 1.8;
+        margin: 64px 0 28px;
+    }
+    &__pic{
+        margin-bottom: 29px;
+        min-height: 92px;
+        position: relative;
+        & img{
+            position: absolute;
+            top: 50%;
+            left: 0;
+            @include translate(0,-50%);
+        }
+    }
+    &__descr{
+
+    }
+}
+.balance{
+    &__list{
+
+    }
+    &__item{
+        padding: 24px 10px 24px 0;
+        font-size: 22px;
+        position: relative;
+        &:not(:last-of-type){
+           border-bottom: 1px solid rgba($black, 0.1);
+        }
+        &.active{
+            font-size: 28px;
+            border-bottom-color: transparent;
+            &:before{
+                content: '';
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                right: -10px;
+                left: -30px;
+                background: #fee359;
+            }
+        }
+    }
+    &__pic{
+        width: 42px;
+        display: inline-block;
+        vertical-align: middle;
+        position: relative;
+        z-index: 1;
+        & img{
+            height: 40px;
+        }
+    }
+    &__info{
+        display: inline-block;
+        vertical-align: middle;
+        padding-left: 8px;
+        position: relative;
+        z-index: 1;
+    }
+    &__current{
+        font-weight: 700;
+    }
+    &__total{
+        display: block;
+        font-size: 14px;
+    }
+}
+
+.list{
+    &-dash{
+        & li{
+            margin-bottom: 2px;
+            &:before{
+                content: '-';
+                margin-right: 2px;
+            }
+        }
+    }
+    &-doubleSquare{
+        & li{
+            position: relative;
+            padding-left: 20px;
+            &:before{
+                content: '';
+                width: 7px;
+                height: 7px;
+                background: $c-accent;
+                position: absolute;
+                left: 1px;
+                top: 6px;
+                @include box-shadow(2px 2px 0 #7f7f7f);
+            }
+            & p{
+                opacity: 0.76;
+            }
+        }
+    }
+}

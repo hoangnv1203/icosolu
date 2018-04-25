@@ -1,0 +1,318 @@
+.section{
+    position: relative;
+    padding: 50px 0;
+    line-height: 1.4;
+    &__intro{
+        min-height: 100vh;
+        padding:180px 0 80px;
+
+        text-align: center;
+        background-color: $c-accent;
+        & .descr{
+            font-size: 24px;
+            font-weight: 500;
+            text-transform: uppercase;
+            opacity: 0.9;
+        }
+        & .introFooter{
+            text-align: center;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 6vh;
+            &__btn{
+                display: inline-block;
+                font-size: 35px;
+            }
+        }
+    }
+    &__def{
+        height: 100vh;
+        padding: 80px 0;
+        text-align: center;
+        background-color: $c-accent;
+    }
+    &__defStaticLeft{
+        min-height: 100vh;
+        width: 80.5%;
+        display: inline-block;
+        vertical-align: top;
+        padding: 150px 0 90px;
+        text-align: center;
+        background-color: $c-accent;
+        font-size: 16px;
+        margin-left: 19.5%;
+        & .section__in{
+            max-width: 935px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+    }
+    &__introFeatures{
+        text-align: left;
+        & .h1{
+            margin-bottom: 1em;
+        }
+        & p{
+            font-size: 24px;
+            line-height: 1.6;
+            margin-bottom: 0.8em;
+        }
+    }
+    &__aboutProj{
+        padding: 95px 0 58px;
+        background:
+        url('../images/bg_figure_1.png') no-repeat -5% 65%,
+        url('../images/bg_figure_2.png') no-repeat 102% 18%,
+        url('../images/bg_figure_3.png') no-repeat 101% 152%;
+        & .h3{
+            margin-top: 65px;
+        }
+        & .row + .row{
+            margin-top: 90px;
+        }
+    }
+    &__roadmap{
+        min-height: 665px;
+        padding: 75px 0 130px;
+        text-align: center;
+        background-color: $c-accent;
+        & .h3{
+            font-size: 36px;
+        }
+    }
+    &__subs{
+        padding: 80px 0 200px;
+        text-align: center;
+        & .form{
+            margin: 0 auto;
+        }
+    }
+    &__market{
+        background:
+        url('../images/bg_figure_1.png') no-repeat -6% 180%,
+        url('../images/bg_figure_2.png') no-repeat 102% 18%;
+    }
+    &__exchange{
+        padding: 78px 0 62px;
+        text-align: center;
+        background: url('../images/mining_bg.svg') $c-accent no-repeat center;
+        -webkit-background-size: auto 83%;
+        background-size: auto 83%;
+        & .content{
+            text-align: left;
+            margin: 76px 0;
+        }
+    }
+    &__mining{
+        & .content{
+            margin-top: 28px;
+        }
+        & .list-doubleSquare{
+            margin-top: 19px;
+        }
+    }
+    &__network{
+        padding: 75px 0 50px;
+        background: url('../images/globe.svg') $c-accent no-repeat 95% -33%;
+    }
+    &__ico{
+        padding-bottom: 200px;
+        & .row + .row{
+            margin-top: 80px;
+        }
+        & .title-md{
+            margin-top: 35px;
+        }
+    }
+    &__settings{
+        text-align: left;
+    }
+}
+.moveBg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    pointer-events: none;
+    overflow: hidden;
+    &__pic{
+        position: absolute;
+        &.static{
+            animation: none;
+        }
+        &_1{
+            height: 55vh;
+            left: -19%;
+            top: 4%;
+            @include rotate(50deg);
+            animation: moveBg_1 60s linear infinite;
+        }
+        &_2{
+            height: 55vh;
+            right: 10%;
+            top: -5%;
+            @include rotate(-30deg);
+            animation: moveBg_2 60s linear infinite;
+        }
+        &_3{
+            height: 55vh;
+            right: 32%;
+            bottom: -35%;
+            @include rotate(30deg);
+            animation: moveBg_3 60s linear infinite;
+        }
+        &_4{
+            height: 55vh;
+            right: -8%;
+            bottom: -28%;
+        }
+    }
+    & + .container{
+        position: relative;
+        z-index: 1;
+    }
+}
+
+@media (max-width:1024px){
+    .moveBg{
+        display:none;
+    }
+    .section{
+        &__defStaticLeft{
+            width:100%;
+            margin:auto;
+            padding: 30px 0 0;
+            & .section__in{
+                max-width:100%;
+                margin: 0 auto;
+                position: relative;
+                z-index: 1;
+            }
+        }
+    }
+}
+
+
+@media (max-width: 768px){
+    .section {
+        &__intro{
+            height:auto;
+            padding: 175px 0 80px;
+        }
+        &__subs {
+            padding: 20px 0 50px;
+        }
+        .boxCenter__out {
+            margin: 0 0 80px 0;
+        }
+        &__aboutProj {
+            background: none;
+            padding: 0 0 20px;
+            .h3 {
+                margin:40px 0 30px;
+            }
+            & .row + .row{
+                margin-top:20px;
+            }
+            .img-stretch {
+                display: none;
+            }
+        }
+        .form {
+            &.form-subs {
+                margin: auto;
+            }
+            &__title {
+                text-align: center;
+                margin:30px 0 0;
+            }
+            &__descr {
+                text-align: center;
+            }
+            &__row {
+                display: flex;
+                flex-direction: column-reverse;
+            }
+            &__inputBtnRight {
+                margin:12px 0 0;
+            }
+        }
+        .full {
+            display: none;
+        }
+        &__ico {
+            padding-bottom:60px;
+        }
+        &__introFeatures {
+            padding:140px 0 10px;
+            .h1 {
+                text-align: center;
+                margin-bottom:.5em;
+            }
+            p {
+                font-size:20px;
+            }
+            .moveBg {
+                display: none;
+            }
+        }
+        &__market {
+            background: none;
+            .market {
+                &__descr {
+                    text-align: center;
+                }
+                &__pic {
+                    img {
+                        left:0;
+                        right:0;
+                        margin:auto;
+                    }
+                }
+            }
+        }
+        &__exchange {
+            background-image: none;
+            padding: 60px 0 0;
+            .content {
+                margin: 30px 0;
+            }
+        }
+        &__network {
+            background-image: none;
+            padding: 20px 0 50px;
+            h3 {
+                margin:30px 0;
+            }
+        }
+        .countdown {
+            &__box {
+                display: flex;
+                justify-content: space-between;
+                max-width: 500px;
+                margin: 40px auto 20px;
+            }
+            &__item {
+                margin:0;
+            }
+            &__numberBox {
+                display: flex;
+            }
+            &__number {
+                width: 30px;
+                height: 50px;
+                line-height: 50px;
+                font-size: 30px;
+            }
+            &__caption {
+                font-size:12px;
+            }
+        }
+    }
+    .moveBg{
+        display:none;
+    }
+}

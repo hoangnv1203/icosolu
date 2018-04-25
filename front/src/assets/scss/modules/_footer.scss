@@ -1,0 +1,55 @@
+.footer{
+    height: 115px;
+    margin-top: -115px;
+    border-top: 1px solid #d2d2d2;
+    position: relative;
+    background: $white;
+    &__logo{
+        width: 138px;
+        position: absolute;
+        left: 50%;
+        top: 50px;
+        margin-left: -69px;
+        &:hover{
+            opacity: 0.8;
+        }
+        & img{
+            width: 100%;
+        }
+    }
+}
+
+@media (max-width: 768px){
+
+    .footer {
+        height:70px;
+        &__logo {
+            display: none;
+        }
+        .footerNav {
+            &__list{
+                display: none;
+            }
+        }
+        margin:0;
+        .soc {
+            &__item {
+                margin: 0 10px;
+            }
+            &__list {
+                display:flex;
+                float: left;
+                justify-content:center;
+                align-items: center;
+                width:100%;
+                height:70px;
+            }
+            &__title {
+                display:none;
+            }
+            &__link {
+                display: flex;
+            }
+        }
+    }
+}

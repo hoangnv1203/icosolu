@@ -1,0 +1,1 @@
+require('assets/solum_whitepaper.pdf');

@@ -1,0 +1,46 @@
+.countdown{
+    &__wrap{
+
+    }
+    &__box{
+        display: inline-block;
+        text-align: center;
+        @include clearfix;
+        &.inverse{
+            & .countdown{
+                &__number{
+                    background: $white;
+                }
+            }
+        }
+    }
+    &__item{
+        float: left;
+        &:not(:last-of-type){
+            margin-right: 20px;
+        }
+    }
+    &__number{
+        display: inline-block;
+        vertical-align: middle;
+        width: 43px;
+        height: 60px;
+        line-height: 54px;
+        font-size: 36px;
+        font-weight: 700;
+        background: #ffe35a;
+        &Box{
+            font-size: 0;
+        }
+        &:not(:last-of-type){
+            margin-right: 4px;
+        }
+    }
+    &__caption{
+        display: block;
+        font-size: 16px;
+        padding: 8px 0;
+        text-transform: uppercase;
+        color: rgba($text-color, .5);
+    }
+}

@@ -1,0 +1,33 @@
+.pagination{
+    &__box{
+        font-family: $ff-open-sans;
+        color: #4b8db2;
+        font-weight: 700;
+        font-size: 0;
+    }
+    &__page{
+        display: inline-block;
+        border-bottom: 1px solid;
+        line-height: 1;
+        margin: 0 7px;
+        font-size: 15px;
+        &:hover,
+        &.active{
+            border-bottom-color: transparent;
+        }
+    }
+    &__ellipsis{
+        display: inline-block;
+        font-size: 15px;
+        cursor: default;
+        margin: 0 5px;
+    }
+}
+
+@media (max-width: 768px){ 
+    .pagination{
+        &__box{
+            margin:40px 0 0;
+        }
+    }
+}

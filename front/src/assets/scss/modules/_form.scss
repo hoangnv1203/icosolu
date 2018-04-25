@@ -1,0 +1,260 @@
+.form{
+    &.error{
+        & .form__errorBox.global{
+            display: block;
+        }
+    }
+    &__row{
+        position: relative;
+        margin: 12px 0;
+        &:before{
+            @include transition();
+        }
+        &.check{
+            &:before{
+                content: "\e905";
+                font-family: 'icomoon';
+                position: absolute;
+                top: 15px;
+                right: 10px;
+                color: #75c04c;
+            }
+            & input{
+                padding-right: 30px;
+                border-color: #e1bf13;
+            }
+        }
+        &.error{
+            & input{
+                border-color: $c-error;
+            }
+            & .form__errorBox{
+                @include vv;
+            }
+        }
+        &.addInput{
+            & .input-dynamic{
+                opacity: 1;
+                pointer-events: all;
+                transition-delay: 0.4s;
+            }
+            & .form__btnAdd{
+                left: 102%;
+                width: 48px;
+                padding: 0;
+                & span{
+                    display: none;
+                }
+                & i{
+                    margin: -3px 0 0;
+                }
+            }
+        }
+    }
+    &__title{
+        display: block;
+        font-size: 22px;
+        font-weight: 800;
+        &Caps{
+            display: block;
+            font-size: 24px;
+            text-transform: uppercase;
+            font-weight: 500;
+            margin-bottom: 32px;
+        }
+    }
+    &__descr{
+        display: block;
+        font-size: 13px;
+        font-style: italic;
+        opacity: 0.5;
+        margin-bottom: 16px;
+    }
+    &__inputBtnRight{
+        float: right;
+        min-width: 160px;
+        margin-left: -45px;
+    }
+    &__error{
+        &Box{
+            position: absolute;
+            background: $c-error;
+            font-size: 13px;
+            font-style: italic;
+            color: $white;
+            padding: 3px 5px;
+            border-radius: 4px;
+            top: 12px;
+            left: 100%;
+            white-space: nowrap;
+            margin-left: 5px;
+            text-align: center;
+            @include transition();
+            @include vh;
+            &.global{
+                display: none;
+                position: static;
+                margin-bottom: 20px;
+                @include vv;
+	            &.active{
+		            @include vv;
+	            }
+            }
+	        &.pos-left{
+		        left: auto;
+		        right: 100%;
+		        margin-left: 0;
+		        margin-right: 5px;
+	        }
+        }
+    }
+    &__hint{
+        font-size: 14px;
+        color: #a29036;
+    }
+    &-subs{
+        width: 410px;
+        max-width: 100%;
+    }
+    &-sm{
+        width: 310px;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    &__btnRow{
+        margin: 20px 0 15px;
+    }
+    &__sent{
+        display: none;
+        & i{
+            width: 48px;
+            height: 48px;
+            line-height: 48px;
+            font-size: 13px;
+            display: block;
+            margin: 40px auto 0;
+            color: $white;
+            background: $c-primary;
+            border-radius: 100%;
+        }
+    }
+    &.ready{
+        & .form{
+            &__fill{
+                display: none;
+            }
+            &__sent{
+                display: block;
+            }
+        }
+    }
+    &-settings{
+        padding-right: 40px;
+        position: relative;
+        width: 410px;
+        max-width: 100%;
+        &:before{
+            content: '';
+            background: #f6d841;
+            position: absolute;
+            top: -12vh;
+            right: -5vw;
+            bottom: -18vh;
+            left: -90vw;
+            z-index: -1;
+        }
+    }
+    &__btnEdit{
+        font-size: 22px;
+        color: #cdb433;
+        position: absolute;
+        top: 0;
+        left: 100%;
+        padding: 13px 15px;
+        line-height: 0;
+        &:hover{
+            color: #968424;
+        }
+    }
+    &__btnAdd{
+        position: relative;
+        left: 0;
+        @include transition(0.3s);
+    }
+    &__in{
+        @include clearfix;
+    }
+    &__qr{
+        float: left;
+        width: 27%;
+        margin: 0 0 12px 0;
+        & img{
+            width: 100%;
+        }
+    }
+	&__qrRight{
+        .form__qr + &{
+            margin-left: 27%;
+            padding-left: 25px;
+            margin-top: -12px;
+        }
+		.form__errorBox{
+			position: static;
+			margin: 5px 0;
+			white-space: normal;
+		}
+	}
+	
+	&__note{
+		font-size: 12px;
+		padding: 0 10px;
+		.link{
+			text-decoration: underline;
+			&:hover &{
+				text-decoration: none;
+			}
+		}
+	}
+}
+.input{
+    &-def{
+        width: 100%;
+        height: 48px;
+        padding: 0 20px;
+        border-radius: 24px;
+        border: 2px solid #d2d2d2;
+        @include plhl-color(rgba(0, 0, 0, 0.5));
+        @include transition();
+        &:focus{
+           border-color: #e1bf13;
+            & + .form__btnEdit{
+                color: #968424;
+            }
+        }
+	    .stretchBox &{
+		    padding-right: 60px;
+	    }
+    }
+    &-dynamic{
+        position: absolute;
+        top: 0;
+        right: 0;
+        pointer-events: none;
+        opacity: 0;
+    }
+}
+
+@media (max-width: 768px){
+    .form{
+        &__row {
+           &.error{
+             .form__errorBox {
+                position: relative;
+                top:0;
+                left:0;
+                margin-bottom:5px;
+            }
+           } 
+        }
+    }
+}
